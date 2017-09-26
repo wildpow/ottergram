@@ -61,6 +61,11 @@ a {
   display: inline-block;
   max-width: 120px;
   min-width: 120px;
+  transition: transform 133ms ease-in-out;
+}
+
+.thumbnail-item:hover {
+  transform: scale(1.2);
 }
 
 .thumbnail-list {
@@ -70,7 +75,7 @@ a {
   list-style: none;
   order: 2;
   overflow-x: auto;
-  padding: 0;
+  padding: 20px 0;
   white-space: nowrap;
 }
 
@@ -99,6 +104,12 @@ a {
 .detail-image-frame {
   position: relative;
   text-align: center;
+  transition: transform 333ms cubic-bezier(1,.06,.28,1);
+}
+
+.is-tiny {
+  transform: scale(0.001);
+  transition: transform 0ms;
 }
 
 .detail-image {
@@ -115,6 +126,19 @@ a {
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
 }
 
+.hidden-detail .detail-image-container {
+  display: none;
+}
+
+.hidden-detail .thumbnail-list {
+  align-items: center;
+  flex-direction: column;
+}
+
+.hidden-detail .thumbnail-item {
+  max-width:  80%;
+}
+
 @media all and (min-width: 768px) {
   .main-content {
     flex-direction: row;
@@ -125,6 +149,7 @@ a {
     flex-direction: column;
     margin-left: 2em;
     order: 0;
+    padding: 0 35px;
   }
 
   .thumbnail-item {
